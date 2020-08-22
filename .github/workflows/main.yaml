@@ -38,3 +38,4 @@ jobs:
           script: |
             sudo tar -xvf /tmp/newplugins.tar -C /srv/eyesofnetwork/nagios/plugins/ --exclude='.git' --exclude='.github' --exclude='LICENSE' --exclude='README.md' --strip-components 1 --overwrite
             sudo chown -R nagios:eyesofnetwork /srv/eyesofnetwork/nagios/plugins/
+            sudo chmod +x -R /srv/eyesofnetwork/nagios/plugins/*
