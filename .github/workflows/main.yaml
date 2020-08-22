@@ -1,3 +1,4 @@
+---
 name: Push to EON
 on:
   push:
@@ -18,11 +19,11 @@ jobs:
           tar -cvf newplugins.tar ../build/
 
       - name: Deploy to EON
-          uses: appleboy/scp-action@v0.1.1
-          with:
-            host: ${{ secrets.EONHOST }}
-            username: ${{ secrets.SSHUSER }}
-            key: ${{ secrets.SSHKEY }}
-            port: ${{ secrets.SSHPORT }}
-            source: "../build/newplugins.tar"
-            target: "/srv/eyesofnetwork/nagios/plugins"
+        uses: appleboy/scp-action@v0.1.1
+        with:
+          host: ${{ secrets.EONHOST }}
+          username: ${{ secrets.SSHUSER }}
+          key: ${{ secrets.SSHKEY }}
+          port: ${{ secrets.SSHPORT }}
+          source: "../build/newplugins.tar"
+          target: "/srv/eyesofnetwork/nagios/plugins"
