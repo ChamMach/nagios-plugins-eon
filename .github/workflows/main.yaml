@@ -36,6 +36,4 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.SSHPORT }}
           script: |
-            sudo -i
-            tar -xvf /tmp/newplugins.tar -C /srv/eyesofnetwork/nagios/plugins/ --strip-components 1
-            chown -R nagios:eyesofnetwork /srv/eyesofnetwork/nagios/plugins/
+            sudo -i && tar -xvf /tmp/newplugins.tar -C /srv/eyesofnetwork/nagios/plugins/ --strip-components 1 && chown -R nagios:eyesofnetwork /srv/eyesofnetwork/nagios/plugins/
