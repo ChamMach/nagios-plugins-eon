@@ -36,5 +36,5 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.SSHPORT }}
           script: |
-            sudo tar -xvf /tmp/newplugins.tar -C /srv/eyesofnetwork/nagios/plugins/ --exclude='/build/.git' --exclude='/build/.github' --exclude='/build/LICENSE' --exclude='/build/README.md' --strip-components 1 --overwrite
+            sudo tar -xvf /tmp/newplugins.tar -C /srv/eyesofnetwork/nagios/plugins/ --exclude='/build/.git' --exclude='./build/.github' --exclude='./build/LICENSE' --exclude='./build/README.md' --strip-components 1 --overwrite
             sudo chown -R nagios:eyesofnetwork /srv/eyesofnetwork/nagios/plugins/
