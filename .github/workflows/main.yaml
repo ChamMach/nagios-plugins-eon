@@ -26,4 +26,4 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.SSHPORT }}
           source: "newplugins.tar"
-          target: "/srv/eyesofnetwork/nagios/plugins"
+          target: "/tmp/"
