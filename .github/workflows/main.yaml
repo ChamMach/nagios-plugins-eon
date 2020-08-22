@@ -16,7 +16,7 @@ jobs:
         run : |
           mkdir ../build
           cp -TR . ../build
-          tar -cvf newplugins.tar ../build/
+          tar -cvf newplugins.tar ../build/ --exclude='./git' --exclude='./github' --exclude='./LICENCE' --exclude='./README.md'
 
       - name: Deploy to EON
         uses: appleboy/scp-action@v0.1.1
