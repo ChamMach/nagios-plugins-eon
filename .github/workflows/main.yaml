@@ -28,7 +28,7 @@ jobs:
           source: "newplugins.tar"
           target: "/tmp/"
 
-      - name: Post deployment installation
+      - name: Post deploy installation
         uses: appleboy/ssh-action@v0.1.1
         with:
           host: ${{ secrets.EONHOST }}
@@ -37,5 +37,5 @@ jobs:
           port: ${{ secrets.SSHPORT }}
           script: |
             sudo -i
-            tar -xvf /tmp/newplugins.tar /srv/eyesofnetwork/plugins/
-            chown nagios:eyeofnetwork /srv/eyesofnetwork/plugins/*
+            tar -xvf /tmp/newplugins.tar -C /srv/eyesofnetwork/plugins/ --strip-components 1
+            chown -R nagios:eyesofnetwork /srv/eyesofnetwork/nagios/plugins/
