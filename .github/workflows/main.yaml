@@ -27,6 +27,14 @@ jobs:
           port: ${{ secrets.SSHPORT }}
           source: "newplugins.tar"
           target: "/tmp/"
+
+      - name: Post deploy installation
+        uses: appleboy/ssh-action@v0.1.1
+        with:
+          host: ${{ secrets.EONHOST }}
+          username: ${{ secrets.SSHUSER }}
+          key: ${{ secrets.SSHKEY }}
+          port: ${{ secrets.SSHPORT }}
           script: |
             sudo -i
             tar -xvzf /tmp/newplugins.tar /srv/eyesofnetwork/plugins/
