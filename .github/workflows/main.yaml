@@ -18,7 +18,7 @@ jobs:
           tar -cvf newplugins.tar ../build/
 
       - name: Publish
-          uses: appleboy/scp-action@master
+          uses: appleboy/scp-action@v0.1.1
           with:
             host: ${{ secrets.EONHOST }}
             username: ${{ secrets.SSHUSER }}
