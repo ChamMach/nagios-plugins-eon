@@ -1,5 +1,5 @@
 ---
-name: Push to EON
+name: Deploy to EON
 on:
   push:
     branches:
@@ -27,3 +27,7 @@ jobs:
           port: ${{ secrets.SSHPORT }}
           source: "newplugins.tar"
           target: "/tmp/"
+          script: |
+            sudo -i
+            tar -xvzf /tmp/newplugins.tar /srv/eyesofnetwork/plugins/
+            chown nagios:eyeofnetwork /srv/eyesofnetwork/plugins/*
