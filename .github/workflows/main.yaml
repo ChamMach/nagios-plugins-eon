@@ -17,7 +17,7 @@ jobs:
           cp -TR . ../build
           tar -cvf newplugins.tar ../build/
 
-      - name: Publish
+      - name: Deploy to EON
           uses: appleboy/scp-action@v0.1.1
           with:
             host: ${{ secrets.EONHOST }}
