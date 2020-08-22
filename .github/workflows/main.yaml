@@ -28,7 +28,7 @@ jobs:
           source: "newplugins.tar"
           target: "/tmp/"
 
-      - name: Post deploy installation
+      - name: Post deployment installation
         uses: appleboy/ssh-action@v0.1.1
         with:
           host: ${{ secrets.EONHOST }}
