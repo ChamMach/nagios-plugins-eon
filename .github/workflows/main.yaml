@@ -16,7 +16,7 @@ jobs:
         run : |
           mkdir ../build
           cp -TR . ../build
-          tar -cvf newplugins.tar ../build/ --exclude='../build/.git' --exclude='../build/.github' --exclude='../build/LICENSE' --exclude='../build/README.md'
+          tar -cvf newplugins.tar ../build/
 
       - name: Deploy to EON
         uses: appleboy/scp-action@v0.1.1
@@ -36,5 +36,5 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.SSHPORT }}
           script: |
-            sudo tar -xvf /tmp/newplugins.tar -C /srv/eyesofnetwork/nagios/plugins/ --strip-components 1 --overwrite
+            sudo tar -xvf /tmp/newplugins.tar -C /srv/eyesofnetwork/nagios/plugins/ --exclude='../build/.git' --exclude='../build/.github' --exclude='../build/LICENSE' --exclude='../build/README.md' --strip-components 1 --overwrite
             sudo chown -R nagios:eyesofnetwork /srv/eyesofnetwork/nagios/plugins/
