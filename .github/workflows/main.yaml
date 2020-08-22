@@ -1,5 +1,5 @@
 name: Push to EON
-on: 
+on:
   push:
     branches:
       - ci_cd
@@ -14,15 +14,15 @@ jobs:
       - name: Create TAR file
         run : |
           mkdir ../build
-          cp -TR . ../build 
+          cp -TR . ../build
           tar -cvf newplugins.tar ../build/
 
-       - name: Publish
-           uses: appleboy/scp-action@master
-           with:
-             host: ${{ secrets.EONHOST }}
-             username: ${{ secrets.SSHUSER }}
-             key: ${{ secrets.SSHKEY }}
-             port: ${{ secrets.SSHPORT }}
-             source: "../build/newplugins.tar"
-             target: "/srv/eyesofnetwork/nagios/plugins"
+      - name: Publish
+          uses: appleboy/scp-action@master
+          with:
+            host: ${{ secrets.EONHOST }}
+            username: ${{ secrets.SSHUSER }}
+            key: ${{ secrets.SSHKEY }}
+            port: ${{ secrets.SSHPORT }}
+            source: "../build/newplugins.tar"
+            target: "/srv/eyesofnetwork/nagios/plugins"
